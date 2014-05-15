@@ -5,7 +5,7 @@ var GreatSpaceRace = angular.module('GreatSpaceRace', [ 'ngRoute',
 
 GreatSpaceRace.factory('UserService', [ function() {
 	var sdo = {
-		isLogged : "no",
+		isLogged : false,
 		username : ''
 	};
 	return sdo;
@@ -38,17 +38,16 @@ controllers.controller('LoginController', [
 					console.log('User ID: ' + user.uid + ', Provider: '
 							+ user.provider);
 					// successful login
-					UserService.isLogged = "yes";
+					UserService.isLogged = true;
 					UserService.username = user.displayName;
 					scope.$apply();
 				} else {
-					UserService.isLogged = "no";
+					UserService.isLogged = false;
 					UserService.username = '';
 					scope.$apply();
 				}
 			});
 			scope.login = function() {
-				UserService.isLogged = "waiting";
 				auth.login('google', {
 					rememberMe : true,
 					scope : 'https://www.googleapis.com/auth/plus.login'
