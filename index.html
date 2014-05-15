@@ -1,4 +1,4 @@
-<html lang="en" ng-app="greatSpaceRaceApp">
+<html lang="en" ng-app="GreatSpaceRace">
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -16,6 +16,7 @@
 <link rel="stylesheet"
 	href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="styles.css">
+<link rel="stylesheet/less" type="text/css" href="spinner.less">
 
 <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!--[if lt IE 9]>
@@ -26,7 +27,8 @@
 
 <body>
 
-	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+	<div class="navbar navbar-inverse navbar-fixed-top" role="navigation"
+		ng-controller="LoginController">
 		<div class="container">
 			<div class="navbar-header">
 				<button type="button" class="navbar-toggle" data-toggle="collapse"
@@ -46,10 +48,18 @@
 				</ul>
 			</div>
 			<!--/.nav-collapse -->
-			<div class="collapse navbar-collapse float-right">
+			<div class="collapse navbar-collapse float-right"
+				ng-if="UserService.isLogged=='yes'">
+				<ul class="nav navbar-nav">
+					<li><a href="#/Profile">Welcome, {{UserService.username}}</a></li>
+					<li><a href="" ng-click="logout()">Logout</a></li>
+				</ul>
+			</div>
+			<div class="collapse navbar-collapse float-right"
+				ng-if="UserService.isLogged=='no'">
 				<ul class="nav navbar-nav">
 					<li><a href="#signup">Sign Up</a></li>
-					<li><a href="#login">Login</a></li>
+					<li><a href="#login" ng-click="login()">Login</a></li>
 				</ul>
 			</div>
 		</div>
@@ -62,7 +72,10 @@
 			<p class="lead">The Great Space Race is starting soon! Is your
 				bot ready?</p>
 		</div>
-
+<div class="spinner">
+				
+			</div>
+			
 	</div>
 	<!-- /.container -->
 
@@ -79,7 +92,10 @@
 		src='https://cdn.firebase.com/js/simple-login/1.4.1/firebase-simple-login.js'></script>
 	<script
 		src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script
+		src="//cdnjs.cloudflare.com/ajax/libs/less.js/1.7.0/less.min.js"></script>
 	<script src="app.js"></script>
+	
 
 
 </body>
