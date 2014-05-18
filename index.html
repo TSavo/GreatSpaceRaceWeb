@@ -46,6 +46,8 @@
 					<li><a href="#rankings">Rankings</a></li>
 					<li class="divider"></li>
 					<li><a href="#team">Team</a></li>
+					<li class="divider"></li>
+					<li><a href="#/Track">Track</a></li>
 				</ul>
 				<ul class="nav navbar-nav navbar-right" ng-if="UserService.isLogged">
 					<li><a class="navbar-link" href="#/Profile">Logged in as {{UserService.username}}</a></li>
@@ -59,14 +61,7 @@
 		</div>
 	</div>
 
-	<div class="container">
-
-		<div class="starter-template">
-			<h1>The Great Space Race</h1>
-			<p class="lead">The Great Space Race is starting soon! Is your
-				bot ready?</p>
-		</div>
-
+	<div ng-view>
 	</div>
 	<!-- /.container -->
 
@@ -75,7 +70,7 @@
 	<script
 		src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 	<script
-		src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.min.js"></script>
+		src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
 	<script
 		src="//cdnjs.cloudflare.com/ajax/libs/angular.js/1.2.16/angular-route.js"></script>
 	<script src="//cdn.firebase.com/js/client/1.0.6/firebase.js"></script>
@@ -83,8 +78,10 @@
 		src='//cdn.firebase.com/js/simple-login/1.4.1/firebase-simple-login.js'></script>
 	<script
 		src="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/processing.js/1.4.7/processing.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/angularFire/0.5.0/angularfire.min.js"></script>
 	<script src="app.js"></script>
-
+	<script src="visualizer.js"></script>
 
 
 </body>
